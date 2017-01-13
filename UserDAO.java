@@ -9,13 +9,15 @@ public interface UserDAO {
 
 	public List<User> list();
 	
+	public boolean saveOrUpdate(User user);
+	
+	public boolean delete(String id);
+	
 	public User get(String id);
 	
-	public User validate(String id, String password);
+	public User getByName(String name);
 	
-	public boolean save(User user);
-	
-	public boolean update(User user);
-	
+	public User isValidUser(String id, String password);
+		
 	
 }

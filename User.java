@@ -1,9 +1,15 @@
 package com.niit.shopgirlbackend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -14,14 +20,21 @@ public class User {
 	@Id
 	private String id;
 	
+	@NotEmpty(message="Enter you name")
 	private String name;
 	
+	@NotNull(message = "Enter your email address")
 	private String email;
-
+	
+	@NotNull(message = "Enter password")
+	@Size(min=8, max=15)
 	private String password;
 	
+	@NotNull
+	@Size(max = 10, message = "Please enter your 10 digit phone number")
 	private String mobile;
 	
+	@NotNull
 	private String role;
 	
 
